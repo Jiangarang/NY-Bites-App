@@ -18,6 +18,7 @@ Here we want a ul list with the instructor, coursenum, title, term
         const term = course.term;
         const sem = term%10;
         const semester=['none','Spring 2021','Summer 2021','Fall 2020']
+        const strTimes = course.strTimes
          %>
       <tr class="mb-2"> 
         <td><%= semester[term%10] %></td>
@@ -39,7 +40,7 @@ Here we want a ul list with the instructor, coursenum, title, term
         </td>
 
         <td>
-        <% for (t of times2str(course.times)){%> 
+        <% for (t of JSON.parse(strTimes)){%> 
             <%= t %> <br> 
         <%} %>
         </td>
