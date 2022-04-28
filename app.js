@@ -299,6 +299,26 @@ app.post('/courses/byInst',
   }
 )
 
+// Code for step 4 of PA
+app.get('/courses/byKeyword/:keyword',
+  // show a list of all courses whose names contain the given keyword
+  async (req,res,next) => {
+    const keyword = req.params.keyword
+    const courses = await Course.find({name:{$regex:keyword},independent_study:false})
+    res.locals.courses = courses
+    res.render('courselist')
+  }
+)
+
+app.post('/courses/byKeyword',
+  async (req,res,next) => {
+    const keyword = req.body.keyword
+    const courses = await Course.find({name:{$regex:keyword},independent_study:false})
+    res.locals.courses = courses
+    res.render('courselist')
+  }
+)
+
 app.use(isLoggedIn)
 
 app.get('/addCourse/:courseId',

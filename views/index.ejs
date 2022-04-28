@@ -28,7 +28,13 @@
             <input type="submit">
         </form>
         <br>
-        <a href="/schedule/show">Show Schedule</a>
+        <form method="post" action="/courses/byKeyword">
+            Show Courses by Keywords:
+            <input type="text" name="keyword"
+                placeholder="e.g. Data (Must be given in Title Case)">
+            <input type="submit">
+        </form>
+        <a href="/schedule/show">Show Schedule</a> 
     <% } %>
 
 
