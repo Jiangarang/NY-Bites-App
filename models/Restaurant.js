@@ -5,6 +5,7 @@ const ObjectId = Schema.Types.ObjectId;
 const Mixed = Schema.Types.Mixed;
 
 var courseSchema = Schema( {
+   address: Mixed,
    borough: String,
    cuisine: String,
    grades: Mixed,
