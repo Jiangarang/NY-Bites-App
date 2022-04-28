@@ -21,11 +21,13 @@ const axios = require("axios")
 const ToDoItem = require("./models/ToDoItem")
 const Course = require('./models/Course')
 const Schedule = require('./models/Schedule')
+const Restaurant = require('./models/Restaurant')
 
 // *********************************************************** //
 //  Loading JSON datasets
 // *********************************************************** //
 const courses = require('./public/data/courses20-21.json')
+const restaurants = require('./public/data/restaurants.json')
 
 
 // *********************************************************** //
@@ -225,7 +227,6 @@ function time2str(time){
 }
 
 
-
 /* ************************
   Loading (or reloading) the data into a collection
    ************************ */
@@ -247,7 +248,6 @@ app.get('/upsertDB',
     res.send("data uploaded: "+num)
   }
 )
-
 
 app.post('/courses/bySubject',
   // show list of courses in a given subject
@@ -366,6 +366,33 @@ app.get('/schedule/remove/:courseId',
     } catch(e){
       next(e)
     }
+  }
+)
+
+
+app.post('/restaurants/byBorough',
+  // show list of restaurants in a given borough
+  async (req,res,next) => {
+    const {borough} = req.body;
+    const restaurants = await Restaurant.find({borough:borough});
+    
+    res.locals.restaurants = restaurants
+    //res.json(restaurants)
+    res.render('restaurantlist')
+  }
+)
+
+app.post('/restaurants/byCuisine',
+  // show restaurants by cuisine
+  async (req,res,next) => {
+    const cuisine = req.body.cuisine;
+    const restaurants = 
+       await Restaurant
+               .find({cuisine:cuisine})
+               .sort({name:1})
+    //res.json(restaurants)
+    res.locals.restaurants = restaurants
+    res.render('restaurantlist')
   }
 )
 

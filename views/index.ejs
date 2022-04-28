@@ -12,8 +12,22 @@
         2020-2021 Academic year data. You must signup or login to see
         the courses and create your schedule.
     </p>
-    
+
     <% if (true || loggedIn) {%>  
+        <form method="post" action="/restaurants/byBorough">
+            Show Restaurants by Borough: 
+              <input type="text" name="borough" 
+                     placeholder="e.g. Queens">
+            <input type="submit">
+        </form>
+        <br>
+        <form method="post" action="/restaurants/byCuisine">
+            Show Restaurants by Cuisine: 
+            <input type="text" name="cuisine" 
+                   placeholder="e.g. italian">
+            <input type="submit">
+        </form>
+        <br>
         <form method="post" action="/courses/bySubject">
             Show Courses by Subject: 
               <input type="text" name="subject" 

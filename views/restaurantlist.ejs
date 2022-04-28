@@ -1,0 +1,29 @@
+<hr>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Borough</th>
+            <th>Cuisine</th>
+            <th>Restaurant Name</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+    <% for (restaurant of restaurants) {
+        const borough = restaurant.borough;
+        const cuisine = restaurant.cuisine;
+        const name = restaurant.name;
+         %>
+      <tr class="mb-2"> 
+        <td><%= borough %></td>
+        <td><%= cuisine %></td>
+        <td> <strong><%= name %></strong> </td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>
+
+<pre>
+    <!-- 
+        <%= JSON.stringify(restaurants,null,5) %> 
+    -->
+</pre>
