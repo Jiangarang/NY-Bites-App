@@ -1,16 +1,18 @@
-<ul>
+<div class="d-flex flex-wrap overflow-scroll">
     <% for (course of courses){%>
-        <li> 
-            <a href="/schedule/remove/<%= course._id %>">X</a>
-            <%= course['subject'] %>
-            <%= course.coursenum %>
-            <%= course.name %>
-            <%= course.term %>
-            
-        </li>
+        <div>
+            <div class="p-3 border border-primary bg-light">
+                Course: <%= course['subject'] %> <%= course.coursenum %>, <%= course.name %> <br>
+                Description: <%= course.description %> <br>
+                Times: <%= JSON.parse(course.strTimes) %> <br>
+                Term: <%= course.term %> <br>
+                <div class="border border-warning bg-light text-center">
+                    <a href="/schedule/remove/<%= course._id %>">Delete</a>
+                </div>
+            </div>
+        </div>
     <% } %>
-</ul>
-
+</div>
 <!--
     <pre>
         <%= JSON.stringify(courses,null,5) %>
