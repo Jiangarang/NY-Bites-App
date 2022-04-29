@@ -14,7 +14,6 @@ const session = require("express-session"); // to handle sessions using cookies
 const debug = require("debug")("personalapp:server"); 
 const layouts = require("express-ejs-layouts");
 const axios = require("axios");
-var MongoDBStore = require('connect-mongodb-session')(session);
 
 // *********************************************************** //
 //  Loading models
@@ -157,8 +156,8 @@ app.use(function(err, req, res, next) {
 //  Starting up the server!
 // *********************************************************** //
 //Here we set the port to use between 1024 and 65535  (2^16-1)
-const port = process.env.PORT || "5000"; //heroku
-//const port = "5000"; //local
+//const port = process.env.PORT || "5000"; //heroku
+const port = "5000"; //local
 app.set("port", port);
 
 // and now we startup the server listening on that port
