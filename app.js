@@ -13,7 +13,7 @@ const cookieParser = require("cookie-parser"); // to handle cookies
 const session = require("express-session"); // to handle sessions using cookies
 const debug = require("debug")("personalapp:server"); 
 const layouts = require("express-ejs-layouts");
-const axios = require("axios")
+const axios = require("axios");
 var MongoDBStore = require('connect-mongodb-session')(session);
 
 // *********************************************************** //
@@ -32,8 +32,8 @@ const restaurants = require('./public/data/restaurants.json')
 // *********************************************************** //
 
 const mongoose = require( 'mongoose' );
-const mongodb_URI = process.env.mongodb_URI
-//const mongodb_URI = 'mongodb+srv://michael:aaa@jiangcpa2.ytpbq.mongodb.net/CPA2?retryWrites=true&w=majority'
+//const mongodb_URI = process.env.mongodb_URI;
+const mongodb_URI = 'mongodb+srv://michael:aaa@jiangcpa2.ytpbq.mongodb.net/CPA2?retryWrites=true&w=majority'
 
 mongoose.connect( mongodb_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
 // fix deprecation warnings
@@ -157,7 +157,8 @@ app.use(function(err, req, res, next) {
 //  Starting up the server!
 // *********************************************************** //
 //Here we set the port to use between 1024 and 65535  (2^16-1)
-const port = process.env.PORT || "5000";
+const port = process.env.PORT || "5000"; //heroku
+//const port = "5000"; //local
 app.set("port", port);
 
 // and now we startup the server listening on that port
