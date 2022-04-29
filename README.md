@@ -2,7 +2,8 @@
 
 Video: (link here)
 
-# How to Use:
+
+## How to Use:
 
 This app is a website called "NY Bites!" and represents a search engine for restaurants in NYC.
 Using the two search bars, you may search for a restaurant by Borough or by Cuisine.
