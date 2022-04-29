@@ -1,6 +1,12 @@
-# CS103a Express App Demo
+# NY Bites!
 
-Video: https://drive.google.com/file/d/1I2RRAJOL80TDclYX0hfDu6kJTLRTNaFG/view?usp=sharing
+Video: (link here)
+
+# How to Use:
+
+This app is a website called "NY Bites!" and represents a search engine for restaurants in NYC.
+Using the two search bars, you may search for a restaurant by Borough or by Cuisine.
+The site will display a list of all restaurants fitting the criteria.
 
 ## Installation
 Download the project from github and download nodejs and npm from https://nodejs.org
