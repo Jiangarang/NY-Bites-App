@@ -72,7 +72,7 @@ router.post('/login',
 router.post('/signup',
   async (req,res,next) =>{
     try {
-      const {username,passphrase,passphrase2,age} = req.body
+      const {username,passphrase,passphrase2} = req.body
       if (passphrase != passphrase2){
         res.redirect('/login')
       }else {
@@ -89,7 +89,6 @@ router.post('/signup',
           const user = new User(
             {username:username,
              passphrase:encrypted,
-             age:age
             })
           
           await user.save()
